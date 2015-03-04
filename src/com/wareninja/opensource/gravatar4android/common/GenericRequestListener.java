@@ -19,47 +19,10 @@
 
 package com.wareninja.opensource.gravatar4android.common;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.MalformedURLException;
-
-import android.os.Bundle;
-import android.util.Log;
+import com.wareninja.opensource.gravatar4android.GravatarResponseData;
 
 
-public abstract class GenericRequestListener {
-	
-	private static final String TAG = "GenericRequestListener";
-	
-	public void onBegin() {
-		if(CONSTANTS.DEBUG)Log.d(TAG, "onBegin()");
-	}
-	public void onComplete(String response) {
-		if(CONSTANTS.DEBUG)Log.d(TAG, "onComplete():" + response);
-	}
-	public void onComplete_wBundle(Bundle params) {
-		if(CONSTANTS.DEBUG)Log.d(TAG, "onComplete_wBundle():" + params);
-	}
-	
-    public void onError(String e) {
-    	if(CONSTANTS.DEBUG)Log.d(TAG, "onError():" + e);
-    }
-    
-    public void onFileNotFoundException(FileNotFoundException e) {
-        Log.e(TAG, e.getMessage());
-        e.printStackTrace();
-    }
-
-    public void onIOException(IOException e) {
-        Log.e(TAG, e.getMessage());
-        e.printStackTrace();
-    }
-
-    public void onMalformedURLException(MalformedURLException e) {
-        Log.e(TAG, e.getMessage());
-        e.printStackTrace();
-    }
-    
-    
-    
+public interface GenericRequestListener {
+	public void onComplet(GravatarResponseData gravatarResponseData);
+    public void onFailure(String type, String message);
 }

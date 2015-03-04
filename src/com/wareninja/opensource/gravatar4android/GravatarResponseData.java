@@ -21,8 +21,6 @@ package com.wareninja.opensource.gravatar4android;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import com.wareninja.opensource.gravatar4android.data.GravatarUser;
-
 public class GravatarResponseData implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -34,10 +32,7 @@ public class GravatarResponseData implements Serializable {
 	
 	private String imageUrl = null;
 	private byte[] imageData = null;
-	
-	private String profileUrl = null;
-	private GravatarUser gravatarUser = null;
-	
+		
 	/**
 	 * @return the status
 	 */
@@ -108,40 +103,12 @@ public class GravatarResponseData implements Serializable {
 		this.imageData = imageData;
 	}
 
-	/**
-	 * @return the profileUrl
-	 */
-	public String getProfileUrl() {
-		return profileUrl;
-	}
-
-	/**
-	 * @param profileUrl the profileUrl to set
-	 */
-	public void setProfileUrl(String profileUrl) {
-		this.profileUrl = profileUrl;
-	}
-
-	/**
-	 * @return the gravatarUser
-	 */
-	public GravatarUser getGravatarUser() {
-		return gravatarUser;
-	}
-
-	/**
-	 * @param gravatarUser the gravatarUser to set
-	 */
-	public void setGravatarUser(GravatarUser gravatarUser) {
-		this.gravatarUser = gravatarUser;
-	}
-	
 	@Override
 	public String toString() {
 		return "GravatarResponseData [errorMessage=" + errorMessage
-				+ ", errorType=" + errorType + ", gravatarUser=" + gravatarUser
+				+ ", errorType=" + errorType
 				+ ", imageData=" + Arrays.toString(imageData) + ", imageUrl="
-				+ imageUrl + ", profileUrl=" + profileUrl + ", status="
+				+ imageUrl + ", status="
 				+ status + "]";
 	}
 }

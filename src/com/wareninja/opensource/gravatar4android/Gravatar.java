@@ -121,23 +121,9 @@ public final class Gravatar {
 	public void downloadGravatarImage(String email, GenericRequestListener reqListener) {
 		
 		GravatarTask mGravatarTask = new GravatarTask();
-		//mGravatarTask.setTaskContext(mContext);// to be added later
-		Bundle params = new Bundle();
-		params.putString("imageUrl", getImageUrl(email));
+        
 		mGravatarTask.setReqListener(reqListener);
-		mGravatarTask.setTaskAction(CONSTANTS.TASK_ACTION_IMAGE);
-		mGravatarTask.execute(params);
-	}
-	
-	public void downloadGravatarProfile(String email, GenericRequestListener reqListener) {
-		
-		GravatarTask mGravatarTask = new GravatarTask();
-		//mGravatarTask.setTaskContext(mContext);// to be added later
-		Bundle params = new Bundle();
-		params.putString("profileUrl", getProfileUrl(email));
-		mGravatarTask.setReqListener(reqListener);
-		mGravatarTask.setTaskAction(CONSTANTS.TASK_ACTION_PROFILE);
-		mGravatarTask.execute(params);
+		mGravatarTask.execute(getImageUrl(email));
 	}
 
 	private String formatUrlParameters() {
